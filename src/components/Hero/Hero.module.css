@@ -1,0 +1,36 @@
+.hero{
+    display:flex;
+    gap: 24px;
+}
+.started{
+    background-color: #f8f8f8;
+    border-radius: 30px;
+    height: 530px;
+}
+.title{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: #121417;    
+}
+.subtitle{
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 138%;
+    letter-spacing: -0.02em;
+    color: #121417;
+}   
+.getStartedButton{
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 156%;
+    color: #121417;
+    background-color: #F4C550;
+    border: none;
+    width: 267px;
+    height: 60px;
+}    
