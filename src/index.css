@@ -24,18 +24,18 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  max-width: 1312px;
-  box-sizing: border-box;
-  margin: 0 auto;
+  background-color: #ffffff;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+h1, p, ul {
+  margin: 0;
+  padding: 0;
 }
 
 button {
@@ -68,4 +68,12 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.container {
+    max-width: 1312px; 
+    width: 100%;   
+    margin: 0 auto; 
+    padding: 0 20px; 
+    box-sizing: border-box;
 }
