@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding:20px 64px 20px 64px;
+    padding: 20px 64px;
 }
 
 .title{
@@ -13,12 +13,16 @@
     line-height: 120%;
     letter-spacing: -0.02em;
     color: #121417;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .links{
     display: flex;
     gap: 28px;
-    padding-left: 390px;
-    padding-right: 268px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .subtitle{
@@ -35,6 +39,9 @@
     line-height: 125%;
     color: #121417;
     background-color: #fff;
+    align-items: center;
+    display: flex;
+    gap: 8px;
 }
 .regButton{
     font-family: var(--font-family);
@@ -43,4 +50,30 @@
     line-height: 125%;
     color: #ffffff;
     background-color: #121417;
+}
+
+.loginIcon{
+    width: 20px;
+    height: 20px;
+    color: #F4C555
+}
+.authButtons{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.logo{
+    width: 28px;
+    height: 28px;
+    background:  linear-gradient(to bottom, #0057b7 50%, #ffd700 50%);
+    color: transparent;
+    display: inline-block;
+    line-height: 1;
+    border-radius: 50%
+}
+
+.userMenu{
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }

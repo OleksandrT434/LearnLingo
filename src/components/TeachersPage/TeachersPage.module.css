@@ -1,0 +1,22 @@
+.container {
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.loadMoreBtn {
+  display: block;
+  margin: 64px auto 0;
+  padding: 16px 48px;
+  background-color: #f4c550;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #121417;
+  cursor: pointer;
+}
+
+.loadMoreBtn:hover {
+  background-color: #ffdc86;
+}

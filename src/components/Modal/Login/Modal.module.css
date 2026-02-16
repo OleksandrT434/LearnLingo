@@ -1,0 +1,121 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  border-radius: 30px;
+  width: 100%; 
+  max-width: 566px; 
+  min-height: 500px;
+  background-color: #fff;
+  padding: 64px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #121417;
+  font-family: var(--font-family);
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: rgba(18, 20, 23, 0.8);
+  font-family: var(--font-family);
+  padding-top: 20px;
+}
+
+.form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  width: 100%;
+  height: 54px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 0 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: #121417; 
+  background-color: #ffffff; 
+  box-sizing: border-box;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  -webkit-text-fill-color: #121417 !important;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #f4c550; 
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #121417;
+}
+
+.closeButton:hover {
+  color: #8b8b8b;
+}
+
+.logButton {
+  border-radius: 12px;
+  margin-top: 40px;
+  width: 100%;
+  height: 60px;
+  background: #f4c550;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417; 
+  cursor: pointer;
+}
+
+.logButton:hover {
+  background-color: #ffdc86; 
+}
+
+.errorText {
+  color: red;
+  font-size: 14px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}

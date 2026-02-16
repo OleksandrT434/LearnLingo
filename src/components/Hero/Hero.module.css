@@ -5,8 +5,10 @@
     margin-top: 20px;
     justify-content: space-between;
     width: 100%;
+    align-items: stretch;
 }
 .started{
+    flex: 1;
     background-color: #f8f8f8;
     border-radius: 30px;
     height: 530px;
