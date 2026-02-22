@@ -5,6 +5,7 @@ import { IoMdHeart, IoMdHeartEmpty } from 'react-icons/io';
 import { IoBookOutline } from "react-icons/io5";
 import { GoStarFill } from "react-icons/go";
 import { useAuth } from "../../context/AuthContext";
+import  BookingMod  from "../Modal/Booking/BookingMod";
 
 
 interface TeacherCardProps {
@@ -13,6 +14,7 @@ interface TeacherCardProps {
   setFavorites: (favorites: string[]) => void;
 }
 export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardProps) => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
   const { user, openLoginModal } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
   const isFavorite = favorites.includes(teacher.id || '');
@@ -29,6 +31,7 @@ export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardPro
 };
 const handleBook = () => {
   if (!user) return openLoginModal();
+  setIsBookingOpen(true);
 }
   return (
     <div className={css.card}>
@@ -98,7 +101,7 @@ const handleBook = () => {
                         </div>
                         <div>
                           <p className={css.reviewerName}>{review.reviewer_name}</p>
-                          <p className={css.reviewRating}>⭐ {review.reviewer_rating.toFixed(1)}</p>
+                          <p className={css.reviewRating}><GoStarFill className={css.starIcon} /> {review.reviewer_rating.toFixed(1)}</p>
                         </div>
                       </div>
                       <p className={css.reviewComment}>{review.comment}</p>
@@ -120,6 +123,7 @@ const handleBook = () => {
           {isExpanded && (
             <button className={css.bookButton} onClick={handleBook}>Book trial lesson</button>
           )}
+          {isBookingOpen && <BookingMod onClose={() => setIsBookingOpen(false)} teacher={teacher} />}
         </div>
       </div>
     </div>

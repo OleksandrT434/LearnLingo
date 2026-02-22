@@ -1,0 +1,165 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  border-radius: 30px;
+  width: 100%; 
+  max-width: 566px; 
+  background-color: #fff;
+  transition: all 0.3s ease;
+  padding: 64px;
+  box-sizing: border-box;
+}
+
+.form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  width: 100%;
+  height: 54px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 0 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: #121417; 
+  background-color: #ffffff; 
+  box-sizing: border-box;
+}
+
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  color: #121417;
+  cursor: pointer;
+}
+
+.radioInput {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d4d4d4;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.radioInput:checked {
+  border: 6px solid #f4c550;
+}
+
+.bookButton{
+  border-radius: 12px;
+  margin-top: 40px;
+  width: 100%;
+  height: 60px;
+  background: #f4c550;
+  border: none;
+  transition: background-color 0.3s ease;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 156%;
+  color: #121417; 
+  cursor: pointer;
+}
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: #121417;
+}
+
+.title{
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #121417;
+  margin-bottom: 20px;
+}
+
+.subtitle{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  color: rgba(18, 20, 23, 0.8);
+}
+.reasonTitle{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 133%;
+  color: #121417;
+}
+
+.teacherInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.teacherAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.teacherLabel {
+  font-size: 14px;
+  color: #8a8a89;
+  margin: 0;
+}
+
+.teacherName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #121417;
+  margin: 0;
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+}
