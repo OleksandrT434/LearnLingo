@@ -2,20 +2,15 @@ import css from './Header.module.css'
 import { MdLogin } from "react-icons/md";
 import { BsCircle } from "react-icons/bs";
 import { NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import Modal from '../Modal/Login/Modal';
+import { useState } from 'react';
 import RegModal from '../Modal/Registration/RegModal';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import type { User } from 'firebase/auth';
 import { auth } from '../../firebase/config';
+import { useAuth } from '../../context/AuthContext';
+import { signOut } from 'firebase/auth';
 
 export default function Header() {
-  const [user, setUser] = useState<User | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user, openLoginModal } = useAuth();
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
 
   const openRegModal = () => setIsRegModalOpen(true);
   const closeRegModal = () => setIsRegModalOpen(false);
@@ -27,13 +22,6 @@ export default function Header() {
       console.error("Error during logout:", error);
     }
   };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
 
   return (
     <header className={css.header}>
@@ -70,7 +58,7 @@ export default function Header() {
           </div>
         ) : (
           <div className={css.authButtons}>
-            <button className={css.logButton} onClick={openModal}>
+            <button className={css.logButton} onClick={openLoginModal}>
               <MdLogin className={css.loginIcon} />
               Log In
             </button>
@@ -80,7 +68,6 @@ export default function Header() {
           </div>
         )}
       </div>
-      {isModalOpen && <Modal onClose={closeModal} />}
       {isRegModalOpen && <RegModal onClose={closeRegModal} />}
     </header>
   )

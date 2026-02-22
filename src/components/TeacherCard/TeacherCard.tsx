@@ -2,6 +2,10 @@ import type { Teacher } from "../../types/types";
 import css from './TeacherCard.module.css';
 import { useState } from 'react';
 import { IoMdHeart, IoMdHeartEmpty } from 'react-icons/io';
+import { IoBookOutline } from "react-icons/io5";
+import { GoStarFill } from "react-icons/go";
+import { useAuth } from "../../context/AuthContext";
+
 
 interface TeacherCardProps {
   teacher: Teacher;
@@ -9,6 +13,7 @@ interface TeacherCardProps {
   setFavorites: (favorites: string[]) => void;
 }
 export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardProps) => {
+  const { user, openLoginModal } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
   const isFavorite = favorites.includes(teacher.id || '');
   const toggleFavorite = () => {
@@ -18,27 +23,31 @@ export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardPro
       setFavorites([...favorites, teacher.id || '']);
     }
   };
+  const handleFavorite = () => {
+  if (!user) return openLoginModal();
+  toggleFavorite();
+};
+const handleBook = () => {
+  if (!user) return openLoginModal();
+}
   return (
     <div className={css.card}>
       <div className={css.header}>
+
         <div className={css.avatarWrapper}>
           <img className={css.avatar} src={teacher.avatar_url} alt={`${teacher.name} ${teacher.surname}`} />
         </div>
-        
+
         <div className={css.content}>
           <div className={css.topSection}>
-            <div>
-              <p className={css.label}>Languages</p>
-              <h2 className={css.name}>{teacher.name} {teacher.surname}</h2>
-            </div>
-            
-            <ul className={css.statsList}>
-              <li>📖 Lessons online</li>
+            <p className={css.label}>Languages</p>
+            <ul className={css.statsList}>  
+              <li> <IoBookOutline className={css.bookIcon} /> Lessons online</li>
               <li>Lessons done: {teacher.lessons_done}</li>
-              <li>⭐ Rating: {teacher.rating}</li>
+              <li> <GoStarFill className={css.starIcon} /> Rating: {teacher.rating}</li>
               <li>Price / 1 hour: <span className={css.price}>{teacher.price_per_hour}$</span></li>
             </ul>
-            <button className={css.favoriteBtn} onClick={toggleFavorite}>
+              <button className={css.favoriteBtn} onClick={handleFavorite}>
               {isFavorite ? (
                 <IoMdHeart className={css.heartFilled} />
               ) : (
@@ -46,10 +55,12 @@ export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardPro
               )}
             </button>
           </div>
-
+            <div>
+              <h2 className={css.name}>{teacher.name} {teacher.surname}</h2>
+            </div>
           <div className={css.info}>
             <p className={css.infoItem}>
-              <span className={css.infoLabel}>Speaks:</span> 
+              <span className={css.infoLabel}>Speaks: </span> 
               {teacher.languages.map((lang, index) => (
                 <span key={lang}>
                   {index === 0 ? <span className={css.mainLanguage}>{lang}</span> : lang}
@@ -107,7 +118,7 @@ export const TeacherCard = ({ teacher, favorites, setFavorites }: TeacherCardPro
           </div>
 
           {isExpanded && (
-            <button className={css.bookButton}>Book trial lesson</button>
+            <button className={css.bookButton} onClick={handleBook}>Book trial lesson</button>
           )}
         </div>
       </div>
