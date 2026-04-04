@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+🌐 LearnLingo
+A web application for finding and booking language tutors. Built as a pet project to practice React, TypeScript, and Firebase.
+🚀 Live Demo
+https://learn-lingo-silk.vercel.app/
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Teachers page with filters and teacher cards
 
-Currently, two official plugins are available:
+✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+📋 Browse a list of language teachers with detailed info
+🔍 Filter teachers by language, level, and price
+❤️ Add teachers to favorites (available for logged-in users only)
+📅 Book a trial lesson with a teacher
+🔐 Authentication — register and log in via email/password
+💾 Favorites saved in localStorage per session
 
-## React Compiler
+🛠️ Tech Stack
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+React — UI library
+TypeScript — static typing
+Vite — build tool
+Firebase — authentication + Realtime Database
+React Router — client-side routing
+React Hook Form + Yup — form validation
+CSS Modules — component-scoped styles
+React Icons — icon library
 
-## Expanding the ESLint configuration
+📁 Project Structure
+src/
+├── components/
+│   ├── Header/
+│   ├── TeacherCard/
+│   └── Modal/
+│       ├── Login/
+│       ├── Registration/
+│       └── Booking/
+├── pages/
+│   ├── Home.tsx
+│   ├── TeachersPage/
+│   └── FavoritesPage.tsx
+├── context/
+│   ├── AuthContext.ts
+│   └── AuthProvider.tsx
+├── firebase/
+│   └── config.ts
+└── types/
+    └── types.ts
+⚙️ Getting Started
+1. Clone the repository
+bashgit clone https://github.com/OleksandrT434/LearnLingo
+cd learnlingo
+2. Install dependencies
+bashnpm install
+3. Set up Firebase
+Create a project at firebase.google.com, enable:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Authentication (Email/Password)
+Realtime Database
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Create a .env file in the root:
+envVITE_FIREBASE_API_KEY=your_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_DATABASE_URL=your_database_url
+VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+4. Run the app
+bashnpm run dev
+🔒 Authentication
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Users can register and log in with email and password
+Favorites and booking are only available to logged-in users
+Unauthorized users are prompted to log in via a modal
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+📌 TODO / Future improvements
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+ Save favorites to Firebase per user instead of localStorage
+ Real booking system with date/time picker
+ Teacher profile page
+ Search by teacher name
+ Pagination instead of "Load more"
+ Dark mode
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+👨‍💻 Author
+Made with ❤️ by Oleksandr Tkachenko
