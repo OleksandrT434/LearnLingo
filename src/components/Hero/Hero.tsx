@@ -1,4 +1,5 @@
 import css from './Hero.module.css'
+import blockImg from '../../img/block.jpg';
 
 
 
@@ -11,7 +12,7 @@ export default function Hero() {
             <button  className={css.getStartedButton}>Get Started</button>
           </div>
             <div className={css.imageContainer}>
-                <img src='/src/img/block.jpg' alt="Hero image" width={568} height={530} />
+                <img src={blockImg} alt="Hero image" width={568} height={530} />
             </div>
         </section>
     )
