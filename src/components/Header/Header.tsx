@@ -18,6 +18,7 @@ export default function Header() {
   const handleLogout = async () => {
     try {
       await signOut(auth);
+      localStorage.removeItem('favorites');
     } catch (error) {
       console.error("Error during logout:", error);
     }
@@ -45,6 +46,14 @@ export default function Header() {
         >
           Teachers
         </NavLink>
+        {user && (
+    <NavLink 
+      to="/favorites" 
+      className={({ isActive }) => isActive ? `${css.subtitle} ${css.active}` : css.subtitle}
+    >
+      Favorites
+    </NavLink>
+        )}
       </nav>
       <div className={css.buttons}>
         {user ? (

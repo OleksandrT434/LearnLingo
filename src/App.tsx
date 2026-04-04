@@ -2,13 +2,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
 import Home from './pages/Home';
-import TeachersPage from './components/TeachersPage/TeachersPage'; 
+import TeachersPage from './components/TeachersPage/TeachersPage';
+import FavoritesPage from './components/FavoritesPage/FavoritesPage';
 
 export default function App() {
   const [favorites, setFavorites] = useState<string[]>(() => {
     const saved = localStorage.getItem('favorites');
     return saved ? JSON.parse(saved) : [];
   });
+
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
@@ -16,14 +18,12 @@ export default function App() {
   return (
     <Router>
       <div className="App">
-        <Header /> 
+        <Header />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route 
-              path="/teachers" 
-              element={<TeachersPage favorites={favorites} setFavorites={setFavorites} />} 
-            />
+            <Route path="/teachers" element={<TeachersPage favorites={favorites} setFavorites={setFavorites} />} />
+            <Route path="/favorites" element={<FavoritesPage favorites={favorites} setFavorites={setFavorites} />} />
           </Routes>
         </main>
       </div>

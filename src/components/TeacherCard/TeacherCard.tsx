@@ -50,6 +50,7 @@ const handleBook = () => {
               <li> <GoStarFill className={css.starIcon} /> Rating: {teacher.rating}</li>
               <li>Price / 1 hour: <span className={css.price}>{teacher.price_per_hour}$</span></li>
             </ul>
+            {user && (
               <button className={css.favoriteBtn} onClick={handleFavorite}>
               {isFavorite ? (
                 <IoMdHeart className={css.heartFilled} />
@@ -57,6 +58,7 @@ const handleBook = () => {
                 <IoMdHeartEmpty className={css.heartEmpty} />
               )}
             </button>
+            )}
           </div>
             <div>
               <h2 className={css.name}>{teacher.name} {teacher.surname}</h2>
